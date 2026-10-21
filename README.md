@@ -10,6 +10,7 @@
 | 1편 | [프로젝트의 정체: npm, 패키지, 빌드, 개발 서버](https://seongyong2.vercel.app/blog/npm-package-build-dev-server) | [`01-npm-dev-server`](./01-npm-dev-server) | Vite로 프로젝트를 만들고 실행, 빌드 |
 | 2편 | [프레임워크 고르기: React, Next.js, Vite](https://seongyong2.vercel.app/blog/react-nextjs-vite-choose-stack) | [`02-react-vite-tailwind`](./02-react-vite-tailwind) | 1편 프로젝트에 Tailwind CSS 붙이기 |
 | 3편 | [화면을 말로 설명하기: 레이아웃 용어](https://seongyong2.vercel.app/blog/layout-words-flex-grid-responsive) | [`03-layout`](./03-layout) | flex, grid, 반응형으로 첫 화면 만들기 |
+| 4편 | [컴포넌트로 생각하기](https://seongyong2.vercel.app/blog/components-split-props-key) | [`04-components`](./04-components) | 첫 화면을 컴포넌트 네 개로 나누기 |
 
 새 편이 올라오면 폴더도 하나씩 늘어납니다.
 
@@ -18,13 +19,13 @@
 두 가지 방법이 있습니다.
 
 - **처음부터 따라 하기**: 1편부터 글을 보면서 내 컴퓨터에 직접 만듭니다. 막히면 해당 편 폴더와 내 프로젝트를 비교해봅니다.
-- **중간부터 시작하기**: 이전 편 폴더를 복사해서 이번 편을 이어서 합니다. 예를 들어 3편부터 시작한다면 `02-react-vite-tailwind`에서 출발합니다.
+- **중간부터 시작하기**: 이전 편 폴더를 복사해서 이번 편을 이어서 합니다. 예를 들어 4편부터 시작한다면 `03-layout`에서 출발합니다.
 
 어느 폴더든 실행 방법은 같습니다.
 
 ```bash
 git clone https://github.com/yongseong2/vibe-coding-frontend.git
-cd vibe-coding-frontend/03-layout
+cd vibe-coding-frontend/04-components
 npm install
 npm run dev
 ```
