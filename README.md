@@ -11,6 +11,7 @@
 | 2편 | [프레임워크 고르기: React, Next.js, Vite](https://seongyong2.vercel.app/blog/react-nextjs-vite-choose-stack) | [`02-react-vite-tailwind`](./02-react-vite-tailwind) | 1편 프로젝트에 Tailwind CSS 붙이기 |
 | 3편 | [화면을 말로 설명하기: 레이아웃 용어](https://seongyong2.vercel.app/blog/layout-words-flex-grid-responsive) | [`03-layout`](./03-layout) | flex, grid, 반응형으로 첫 화면 만들기 |
 | 4편 | [컴포넌트로 생각하기](https://seongyong2.vercel.app/blog/components-split-props-key) | [`04-components`](./04-components) | 첫 화면을 컴포넌트 네 개로 나누기 |
+| 5편 | [상태(state)와 데이터 흐름](https://seongyong2.vercel.app/blog/state-and-data-flow) | [`05-state`](./05-state) | 상태를 붙여 추가·완료·삭제 동작시키기 |
 
 새 편이 올라오면 폴더도 하나씩 늘어납니다.
 
@@ -25,7 +26,7 @@
 
 ```bash
 git clone https://github.com/yongseong2/vibe-coding-frontend.git
-cd vibe-coding-frontend/04-components
+cd vibe-coding-frontend/05-state
 npm install
 npm run dev
 ```
