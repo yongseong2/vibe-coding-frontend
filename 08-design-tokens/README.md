@@ -19,7 +19,7 @@ npm run dev      # 터미널 2: http://localhost:5173/
 | 파일 | 바뀐 것 |
 | --- | --- |
 | [`src/index.css`](./src/index.css) | 색 11개와 모서리 1개를 토큰으로 정의. 다크 모드 값도 여기에 |
-| `src/App.jsx`, `src/components/*.jsx` | `bg-blue-600` 같은 값을 `bg-primary` 같은 토큰 이름으로 바꿈 |
+| `src/App.tsx`, `src/components/*.tsx` | `bg-blue-600` 같은 값을 `bg-primary` 같은 토큰 이름으로 바꿈 |
 
 바꾼 클래스는 아래와 같습니다.
 
@@ -43,6 +43,6 @@ npm run dev      # 터미널 2: http://localhost:5173/
 
 | 바꾸는 곳 | 생기는 일 |
 | --- | --- |
-| `TodoForm.jsx`의 `bg-primary`를 `bg-primay`로 (오타) | 추가 버튼 배경이 투명해져 흰 글자가 안 보임. 콘솔 에러 없고 `npm run build`도 통과 |
-| `TodoForm.jsx`의 `bg-primary`를 `bg-[#2563eb]`로 | 밝은 화면에서는 같아 보이지만, 다크 모드에서 이 버튼만 색이 안 바뀜 |
+| `TodoForm.tsx`의 `bg-primary`를 `bg-primay`로 (오타) | 추가 버튼 배경이 투명해져 흰 글자가 안 보임. 콘솔 에러 없고 `npm run build`도 통과 |
+| `TodoForm.tsx`의 `bg-primary`를 `bg-[#2563eb]`로 | 밝은 화면에서는 같아 보이지만, 다크 모드에서 이 버튼만 색이 안 바뀜 |
 | `index.css`의 `--primary` 값을 `#16a34a`로 | 버튼과 체크박스가 한꺼번에 초록색으로 바뀜 (토큰을 쓴 효과) |

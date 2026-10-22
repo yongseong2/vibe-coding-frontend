@@ -6,16 +6,16 @@
 
 ## 따라 하기
 
-3편 폴더를 복사하고 `src/components` 폴더를 만든 뒤, 아래 네 파일을 추가합니다. 그다음 `src/App.jsx`를 이 폴더의 [`src/App.jsx`](./src/App.jsx)처럼 바꿉니다.
+3편 폴더를 복사하고 `src/components` 폴더를 만든 뒤, 아래 네 파일을 추가합니다. 할 일 하나의 모양(`id`, `text`, `done`)은 여러 파일이 함께 쓰므로 [`src/types.ts`](./src/types.ts)에 `Todo` 타입으로 정해둡니다. 그다음 `src/App.tsx`를 이 폴더의 [`src/App.tsx`](./src/App.tsx)처럼 바꿉니다.
 
-| 파일 | 맡은 일 | 받는 props |
+| 파일 | 맡은 일 | 받는 props (타입) |
 | --- | --- | --- |
-| [`StatCard.jsx`](./src/components/StatCard.jsx) | 숫자 카드 하나 | `label`, `count` |
-| [`TodoForm.jsx`](./src/components/TodoForm.jsx) | 입력 줄 | 없음 |
-| [`TodoItem.jsx`](./src/components/TodoItem.jsx) | 할 일 한 줄 | `text`, `done` |
-| [`TodoList.jsx`](./src/components/TodoList.jsx) | 할 일 목록 | `todos` |
+| [`StatCard.tsx`](./src/components/StatCard.tsx) | 숫자 카드 하나 | `label: string`, `count: number` |
+| [`TodoForm.tsx`](./src/components/TodoForm.tsx) | 입력 줄 | 없음 |
+| [`TodoItem.tsx`](./src/components/TodoItem.tsx) | 할 일 한 줄 | `text: string`, `done: boolean` |
+| [`TodoList.tsx`](./src/components/TodoList.tsx) | 할 일 목록 | `todos: Todo[]` |
 
-`src/App.jsx`는 55줄에서 35줄이 되고, 할 일 데이터와 화면 순서만 남습니다.
+`src/App.tsx`는 55줄에서 36줄이 되고, 할 일 데이터와 화면 순서만 남습니다.
 
 ## 화면이 그대로인지 확인하기
 
@@ -23,13 +23,13 @@
 
 ## 깨진 화면 직접 내보기
 
-아래처럼 한 군데씩 바꾸면 글의 "모르면 생기는 일"을 그대로 볼 수 있습니다. 브라우저 개발자 도구의 콘솔(Console) 탭을 열어두고 확인합니다.
+아래처럼 한 군데씩 바꾸면 글의 "모르면 생기는 일"을 그대로 볼 수 있습니다. 브라우저 개발자 도구의 콘솔(Console) 탭을 열어두고, `npm run build`와 `npm run lint`도 함께 실행해봅니다.
 
-| 바꾸는 곳 | 생기는 일 |
-| --- | --- |
-| `TodoList.jsx`에서 `key={todo.id}` 지우기 | 화면은 멀쩡하지만 콘솔에 `Each child in a list should have a unique "key" prop.` 에러 |
-| `TodoList.jsx`에서 `text={todo.text} done={todo.done}`을 `todo={todo}`로 바꾸기 | 에러 없이 할 일 세 줄의 글자가 모두 빈칸 |
-| `App.jsx`에서 `import TodoList ...` 줄 지우기 | 흰 화면. 콘솔에 `TodoList is not defined` |
-| `TodoList.jsx`에서 `TodoItem`을 `todoItem`으로 바꾸기 | 목록이 사라지고 콘솔에 `is using incorrect casing` 에러 |
+| 바꾸는 곳 | 화면과 콘솔 | `npm run build` (타입 검사) |
+| --- | --- | --- |
+| `TodoList.tsx`에서 `key={todo.id}` 지우기 | 화면은 멀쩡하지만 콘솔에 `Each child in a list should have a unique "key" prop.` 에러 | 통과. `npm run lint`가 `Missing "key" prop` 경고로 잡음 |
+| `TodoList.tsx`에서 `text={todo.text} done={todo.done}`을 `todo={todo}`로 바꾸기 | 에러 없이 할 일 세 줄의 글자가 모두 빈칸 | 실패. `Property 'todo' does not exist on type ... TodoItemProps` |
+| `App.tsx`에서 `import TodoList ...` 줄 지우기 | 흰 화면. 콘솔에 `TodoList is not defined` | 실패. `Cannot find name 'TodoList'` |
+| `TodoList.tsx`에서 `TodoItem`을 `todoItem`으로 바꾸기 | 목록이 사라지고 콘솔에 `is using incorrect casing` 에러 | 실패. `Property 'todoItem' does not exist on type 'JSX.IntrinsicElements'` |
 
-`import`를 지운 경우는 `npm run build`는 통과하지만, `npm run lint`를 실행하면 `'TodoList' is not defined` 경고로 잡힙니다.
+개발 서버(`npm run dev`)는 타입을 검사하지 않고 화면을 띄웁니다. 그래서 화면에서는 JavaScript와 같은 증상이 나오고, 타입 에러는 `npm run build`나 에디터의 빨간 밑줄로 확인합니다.

@@ -28,9 +28,10 @@ npm run preview  # http://localhost:4173/  (브라우저 저장소에 저장, AP
 | [`.env.development`](./.env.development) | 새 파일. 개발 서버에서만 쓰는 API 주소 |
 | [`.env.example`](./.env.example) | 새 파일. 어떤 환경 변수가 있는지 알려주는 예시 |
 | [`.gitignore`](./.gitignore) | `.env`, `.env.production`을 Git에 올리지 않게 추가 |
-| [`src/api.js`](./src/api.js) | 주소를 `import.meta.env.VITE_API_URL`에서 읽고, 없으면 localStorage에 저장 |
+| [`src/env.d.ts`](./src/env.d.ts) | 새 파일. 이 앱이 읽는 환경 변수 `VITE_API_URL`의 타입 |
+| [`src/api.ts`](./src/api.ts) | 주소를 `import.meta.env.VITE_API_URL`에서 읽고, 없으면 localStorage에 저장. 두 저장 방식이 같은 `TodoApi` 타입을 따름 |
 
-화면 코드는 9편과 같습니다. `api.js`가 내보내는 함수 네 개의 이름과 사용법이 그대로라서, 저장 위치가 바뀌어도 `App.jsx`는 고칠 필요가 없습니다.
+화면 코드는 9편과 같습니다. `api.ts`가 내보내는 함수 네 개의 이름과 타입이 그대로라서, 저장 위치가 바뀌어도 `App.tsx`는 고칠 필요가 없습니다.
 
 ## Vercel에 배포하기
 
@@ -58,4 +59,4 @@ npm run preview  # http://localhost:4173/  (브라우저 저장소에 저장, AP
 | --- | --- |
 | `.env.local`에 `VITE_PAYMENT_SECRET=sk_test_1234`와 `PAYMENT_SECRET=sk_test_5678`을 넣고 코드에서 둘 다 읽은 뒤 빌드 | `dist/assets`의 JS에서 `sk_test_1234`가 그대로 검색됨. `VITE_`가 없는 값은 들어가지 않음 |
 | 할 일에 `<img src=x onerror="alert('XSS')">`를 추가 | 글자 그대로 보임. React가 글자로 바꿔서 보여주기 때문 |
-| `TodoItem.jsx`의 `<span>{text}</span>`을 `dangerouslySetInnerHTML={{ __html: text }}`로 바꾸고 위 할 일을 추가 | 경고창이 뜸. 저장된 뒤에는 페이지를 열 때마다 뜸 |
+| `TodoItem.tsx`의 `<span>{text}</span>`을 `dangerouslySetInnerHTML={{ __html: text }}`로 바꾸고 위 할 일을 추가 | 경고창이 뜸. 저장된 뒤에는 페이지를 열 때마다 뜸 |

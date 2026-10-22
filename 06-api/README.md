@@ -24,11 +24,12 @@ json-server 1.0.0-beta.15는 Node.js 22.12 이상이 필요합니다.
 | --- | --- |
 | [`db.json`](./db.json) | 새 파일. 처음 할 일 세 개가 들어 있는 데이터 |
 | [`package.json`](./package.json) | `server` 스크립트 추가 |
-| [`vite.config.js`](./vite.config.js) | `db.json`이 바뀔 때 페이지가 새로고침되지 않게 감시에서 뺌 |
-| [`src/api.js`](./src/api.js) | 새 파일. 목록 불러오기·추가·수정·삭제 요청을 모아둔 곳 |
-| [`src/App.jsx`](./src/App.jsx) | 처음 나타날 때 목록을 불러오고, 불러오는 중·실패·빈 목록 화면 추가 |
+| [`vite.config.ts`](./vite.config.ts) | `db.json`이 바뀔 때 페이지가 새로고침되지 않게 감시에서 뺌 |
+| [`src/types.ts`](./src/types.ts) | `Todo`의 `id`를 `number`에서 `string`으로. json-server가 id를 문자열로 만들기 때문 |
+| [`src/api.ts`](./src/api.ts) | 새 파일. 목록 불러오기·추가·수정·삭제 요청을 모아둔 곳. 돌려받을 데이터의 타입을 함께 적음 |
+| [`src/App.tsx`](./src/App.tsx) | 처음 나타날 때 목록을 불러오고, 불러오는 중·실패·빈 목록 화면 추가 |
 
-컴포넌트 네 개(`StatCard`, `TodoForm`, `TodoList`, `TodoItem`)는 5편과 같습니다.
+컴포넌트 네 개(`StatCard`, `TodoForm`, `TodoList`, `TodoItem`)는 5편과 같습니다. `id`가 문자열로 바뀐 것은 `Todo` 타입을 따라 자동으로 맞춰집니다.
 
 ## 동작 확인
 
@@ -54,8 +55,8 @@ json-server 1.0.0-beta.15는 Node.js 22.12 이상이 필요합니다.
 
 | 바꾸는 곳 | 생기는 일 |
 | --- | --- |
-| `App.jsx`의 `useEffect` 끝 `}, [])`를 `})`로 | 요청이 끝없이 반복됨. 3초 동안 `GET /todos`가 666번 감 |
-| `api.js`의 `'/todos'`를 `'/todo'`로 바꾸고 `if (!response.ok)` 검사를 지우기 | 흰 화면. 콘솔에 `todos.filter is not a function` |
+| `App.tsx`의 `useEffect` 끝 `}, [])`를 `})`로 | 요청이 끝없이 반복됨. 네 번 재보니 3초 동안 `GET /todos`가 720~847번 감 |
+| `api.ts`의 `getTodos` 주소 `'/todos'`를 `'/todo'`로 바꾸고 `if (!response.ok)` 검사를 지우기 | 흰 화면. 콘솔에 `todos.filter is not a function`. `npm run build`는 통과 (타입은 실제 응답을 확인하지 못함) |
 | 위에서 `response.ok` 검사는 그대로 두기 | 에러 화면이 나오고 콘솔에 `요청 실패: 404` |
-| `App.jsx`의 `.catch(...)`를 지우고 API 서버를 끄기 | "불러오는 중..."에서 멈춤 |
-| `vite.config.js`의 `server.watch` 부분 지우기 | 추가·체크·삭제할 때마다 페이지 전체가 새로고침됨 |
+| `App.tsx`의 `.catch(...)`를 지우고 API 서버를 끄기 | "불러오는 중..."에서 멈춤 |
+| `vite.config.ts`의 `server.watch` 부분 지우기 | 추가·체크·삭제할 때마다 페이지 전체가 새로고침됨 |

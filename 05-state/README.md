@@ -10,10 +10,10 @@
 
 | 파일 | 바뀐 것 |
 | --- | --- |
-| [`App.jsx`](./src/App.jsx) | 할 일 목록을 `useState`로 관리하고 추가·완료·삭제 함수 추가 |
-| [`TodoForm.jsx`](./src/components/TodoForm.jsx) | 입력 글자를 상태로 기억하고, 제출하면 `onAdd`로 알림 |
-| [`TodoList.jsx`](./src/components/TodoList.jsx) | `onToggle`, `onDelete`를 받아 줄마다 넘김 |
-| [`TodoItem.jsx`](./src/components/TodoItem.jsx) | 체크박스와 삭제 버튼에 함수 연결, 완료하면 취소선 |
+| [`App.tsx`](./src/App.tsx) | 할 일 목록을 `useState`로 관리하고 추가·완료·삭제 함수 추가 |
+| [`TodoForm.tsx`](./src/components/TodoForm.tsx) | 입력 글자를 상태로 기억하고, 제출하면 `onAdd`로 알림 |
+| [`TodoList.tsx`](./src/components/TodoList.tsx) | `onToggle`, `onDelete`를 받아 줄마다 넘김 |
+| [`TodoItem.tsx`](./src/components/TodoItem.tsx) | 체크박스와 삭제 버튼에 함수 연결, 완료하면 취소선 |
 
 상태는 `App` 한 곳에만 있습니다. 목록과 개수는 props로 내려가고, 입력 줄과 할 일 한 줄은 받은 함수를 불러서 변경을 알립니다. 완료 개수는 상태로 따로 두지 않고 목록에서 계산합니다.
 
@@ -35,7 +35,7 @@
 
 | 바꾸는 곳 | 생기는 일 |
 | --- | --- |
-| `App.jsx`의 `useState(initialTodos)`를 `let todos = initialTodos`로 바꾸고, `addTodo` 안을 `todos = [...todos, ...]`로 | 콘솔에 개수는 늘었다고 찍히지만 화면은 3줄 그대로 |
-| `App.jsx`의 `addTodo` 안을 `todos.push(...)` 뒤 `setTodos(todos)`로 | 두 번 추가해도 3줄. 체크박스를 누르는 순간 5줄이 한꺼번에 나타남 |
-| `TodoForm.jsx`에서 `event.preventDefault()` 줄 지우기 | 추가를 누르면 페이지가 새로고침되고, 주소가 `/?`로 바뀌며 적은 할 일이 사라짐 |
-| `TodoList.jsx`에서 `const [items] = useState(todos)`로 복사해 `items.map`으로 그리기 | 숫자 카드는 전체 4로 바뀌는데 목록은 3줄에 멈춤 |
+| `App.tsx`의 `useState(initialTodos)`를 `let todos = initialTodos`로 바꾸고, `addTodo` 안을 `todos = [...todos, ...]`로 | 콘솔에 개수는 늘었다고 찍히지만 화면은 3줄 그대로 |
+| `App.tsx`의 `addTodo` 안을 `todos.push(...)` 뒤 `setTodos(todos)`로 | 두 번 추가해도 3줄. 체크박스를 누르는 순간 5줄이 한꺼번에 나타남 |
+| `TodoForm.tsx`에서 `event.preventDefault()` 줄 지우기 | 추가를 누르면 페이지가 새로고침되고, 주소가 `/?`로 바뀌며 적은 할 일이 사라짐 |
+| `TodoList.tsx`에서 `const [items] = useState(todos)`로 복사해 `items.map`으로 그리기 | 숫자 카드는 전체 4로 바뀌는데 목록은 3줄에 멈춤 |

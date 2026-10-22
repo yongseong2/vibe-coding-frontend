@@ -25,8 +25,8 @@ Chrome에서 주소를 열고 개발자 도구의 Lighthouse 탭에서 Mobile로
 | [`index.html`](./index.html) | `lang="ko"`, 제목, `meta description` | SEO: 설명 없음 |
 | [`public/robots.txt`](./public/robots.txt) | 새 파일 | SEO: robots.txt가 올바르지 않음 |
 | [`src/index.css`](./src/index.css) | `--muted`를 `#6b7280`에서 `#4b5563`으로 | 접근성: 대비 4.39:1 (기준 4.5:1) |
-| [`src/components/TodoItem.jsx`](./src/components/TodoItem.jsx) | 체크박스와 글자를 `label`로 감싸고, 삭제 버튼에 `aria-label` | 접근성: 이름 없는 체크박스 |
-| [`src/components/TodoForm.jsx`](./src/components/TodoForm.jsx) | 입력창에 눈에 안 보이는 `label` | placeholder를 이름 대신 쓰지 않게 |
+| [`src/components/TodoItem.tsx`](./src/components/TodoItem.tsx) | 체크박스와 글자를 `label`로 감싸고, 삭제 버튼에 `aria-label` | 접근성: 이름 없는 체크박스 |
+| [`src/components/TodoForm.tsx`](./src/components/TodoForm.tsx) | 입력창에 눈에 안 보이는 `label` | placeholder를 이름 대신 쓰지 않게 |
 
 ## 측정 결과
 
@@ -39,7 +39,7 @@ Lighthouse 13.5.0, Mobile, `npm run preview`로 연 화면 (2026년 10월 22일)
 
 ## 큰 이미지 하나로 성능 떨어뜨려 보기
 
-`App.jsx`의 제목 위에 큰 이미지를 하나 넣고 다시 재봤습니다. 확인한 뒤에는 지웁니다.
+`App.tsx`의 제목 위에 큰 이미지를 하나 넣고 다시 재봤습니다. 확인한 뒤에는 지웁니다.
 
 | 넣은 이미지 | 성능 | LCP | CLS |
 | --- | --- | --- | --- |

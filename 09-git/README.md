@@ -40,8 +40,8 @@ git merge filter
 
 | 파일 | 바뀐 것 |
 | --- | --- |
-| [`src/components/FilterTabs.jsx`](./src/components/FilterTabs.jsx) | 새 파일. 전체·진행 중·완료 버튼 세 개 |
-| [`src/App.jsx`](./src/App.jsx) | 고른 필터를 상태로 두고, 보여줄 목록을 그릴 때마다 계산 |
+| [`src/components/FilterTabs.tsx`](./src/components/FilterTabs.tsx) | 새 파일. 전체·진행 중·완료 버튼 세 개 |
+| [`src/App.tsx`](./src/App.tsx) | 고른 필터를 상태로 두고, 보여줄 목록을 그릴 때마다 계산 |
 
 ## 동작 확인
 
@@ -58,8 +58,8 @@ git merge filter
 
 | 상황 | 명령 | 결과 |
 | --- | --- | --- |
-| 커밋 전, 파일 하나가 망가짐 | `git restore src/App.jsx` | 마지막 커밋 상태로 돌아감 |
+| 커밋 전, 파일 하나가 망가짐 | `git restore src/App.tsx` | 마지막 커밋 상태로 돌아감 |
 | 커밋 전, 전부 버리고 싶음 | `git restore .` 후 새 파일은 `git clean -n`으로 확인 | 고친 파일이 돌아감. 새 파일은 따로 지워야 함 |
 | 이미 커밋한 것을 취소 | `git revert HEAD` | 반대로 고치는 커밋이 하나 더 생김 |
 
-`App.jsx`에서 `import FilterTabs ...` 줄을 지우면 `npm run build`는 통과하지만, 브라우저에서는 "FilterTabs is not defined" 에러 화면이 나옵니다. `npm run lint`는 `'FilterTabs' is not defined` 경고로 잡아줍니다. 이 상태에서 `git diff`로 지워진 줄을 확인하고 `git restore src/App.jsx`로 되돌려보세요.
+`App.tsx`에서 `import FilterTabs ...` 줄을 지우면 `npm run build`가 `Cannot find name 'FilterTabs'`, `Cannot find name 'Filter'` 타입 에러로 실패합니다. 이 상태에서 `git diff`로 지워진 줄을 확인하고 `git restore src/App.tsx`로 되돌려보세요.
