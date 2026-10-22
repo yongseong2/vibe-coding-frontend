@@ -20,9 +20,9 @@ npm install
 npm install tailwindcss @tailwindcss/vite
 ```
 
-**2. `vite.config.js`에 플러그인 추가**
+**2. `vite.config.ts`에 플러그인 추가**
 
-```js
+```ts
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
@@ -42,9 +42,9 @@ export default defineConfig({
 
 **4. 템플릿 화면 지우기**
 
-`src/App.css`, `src/assets/`, `public/icons.svg`를 지우고 `src/App.jsx`를 아래처럼 바꿉니다.
+`src/App.css`, `src/assets/`, `public/icons.svg`를 지우고 `src/App.tsx`를 아래처럼 바꿉니다.
 
-```jsx
+```tsx
 function App() {
   return (
     <main className="mx-auto max-w-xl p-6">

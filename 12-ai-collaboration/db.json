@@ -1,0 +1,7 @@
+{
+  "todos": [
+    { "id": "1", "text": "장보기", "done": true },
+    { "id": "2", "text": "블로그 글 읽기", "done": false },
+    { "id": "3", "text": "https://seongyong2.vercel.app/blog/layout-words-flex-grid-responsive", "done": false }
+  ]
+}

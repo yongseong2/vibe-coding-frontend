@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/*
+ * 디자인 토큰: 색과 모서리를 이름으로 정해두는 곳.
+ * 컴포넌트에서는 bg-blue-600 같은 값 대신 bg-primary 같은 이름만 쓴다.
+ * 색을 바꾸고 싶으면 이 파일만 고치면 된다.
+ */
+:root {
+  --page: #ffffff;
+  --ink: #111827;
+  --muted: #6b7280;
+  --surface: #f3f4f6;
+  --line: #d1d5db;
+  --primary: #2563eb;
+  --on-primary: #ffffff;
+  --danger: #dc2626;
+  --danger-soft: #fef2f2;
+  --warning: #92400e;
+  --warning-soft: #fffbeb;
+}
+
+/* 휴대폰이나 컴퓨터가 다크 모드면 같은 이름에 어두운 값을 넣는다 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #0b1120;
+    --ink: #f3f4f6;
+    --muted: #9ca3af;
+    --surface: #1f2937;
+    --line: #374151;
+    --primary: #3b82f6;
+    --on-primary: #ffffff;
+    --danger: #f87171;
+    --danger-soft: #3b1219;
+    --warning: #fcd34d;
+    --warning-soft: #3a2a0a;
+  }
+}
+
+/* 위 값을 Tailwind 클래스 이름으로 연결한다. --color-primary는 bg-primary, text-primary가 된다 */
+@theme inline {
+  --color-page: var(--page);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --radius-card: 0.75rem;
+}
+
+body {
+  @apply bg-page text-ink;
+}
