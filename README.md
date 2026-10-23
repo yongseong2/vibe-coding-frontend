@@ -26,6 +26,17 @@
 
 저장소 맨 위와 각 폴더에 `AGENTS.md`가 있습니다. Codex, Cursor, GitHub Copilot 같은 AI 코딩 도구가 작업 전에 읽는 안내서로, 이 프로젝트가 무엇이고 그 편까지 어떤 규칙을 지키는지 적혀 있습니다. Claude Code는 `CLAUDE.md`를 읽으니, 첫 줄에 `@AGENTS.md`를 적은 `CLAUDE.md`를 만들어 연결합니다. 12편 폴더에 예시가 있습니다.
 
+## 준비물
+
+| 도구 | 확인 명령 | 설치 |
+| --- | --- | --- |
+| Node.js (22.12 이상) | `node -v` | [nodejs.org](https://nodejs.org/ko/download)에서 LTS 버전 |
+| Git | `git --version` | [git-scm.com](https://git-scm.com/downloads) |
+| AI 코딩 도구 | | [Claude 데스크톱 앱](https://claude.com/download), [Claude Code](https://code.claude.com/docs/en/setup), [Codex](https://developers.openai.com/codex/cli) 중 하나 |
+| 코드 에디터, Chrome | | 각 공식 사이트 |
+
+자세한 설치 순서는 [0편](https://seongyong2.vercel.app/blog/vibe-coding-needs-frontend-knowledge)에 있습니다. Git으로 커밋하기 전에는 `git config --global user.name`과 `user.email`을 한 번 정해야 합니다(9편).
+
 ## 사용법
 
 두 가지 방법이 있습니다.

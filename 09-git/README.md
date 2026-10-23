@@ -17,10 +17,14 @@ npm run dev      # 터미널 2: http://localhost:5173/
 이 저장소 전체가 이미 Git 저장소라서, 연습은 따로 복사한 폴더에서 합니다.
 
 ```bash
-# 1. 8편 폴더를 저장소 밖으로 복사하고 Git을 시작한다
+# 0. Git을 처음 쓴다면 커밋에 남길 이름과 이메일을 한 번만 정한다
+git config --global user.name "내 이름"
+git config --global user.email "me@example.com"
+
+# 1. 8편 폴더를 저장소 밖으로 복사하고 Git을 시작한다 (-b main: 첫 브랜치 이름을 main으로)
 cp -r 08-design-tokens ~/todo-app
 cd ~/todo-app
-git init
+git init -b main
 git add .
 git commit -m "8편까지 완성한 할 일 앱"
 
